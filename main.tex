@@ -1,17 +1,19 @@
-\documentclass[a4paper, 12pt]{report}
-\usepackage[top=2cm, bottom=2cm, left=2.54cm, right=1.5cm]{geometry}  % 1‑inch margins on every side
-\usepackage{graphicx}   % for figures
-\usepackage{titlesec}   % custom chapter titles
-\usepackage{minted}     % for syntax-highlighted code
+\documentclass[a4paper, 12pt, openany]{report}
+\usepackage[top=2cm, bottom=2cm, left=2.54cm, right=1.5cm]{geometry}  % 1‑inch margins on every side
+\usepackage{graphicx}   % for figures
+\usepackage{titlesec}   % custom chapter titles
+\usepackage{minted}     % for syntax-highlighted code
 \usepackage{xcolor}
-\usepackage{fvextra}    % for line background colors
-\usepackage{tocloft}    % for custom TOC formatting
+\usepackage{fvextra}    % for line background colors
+\usepackage{tocloft}    % for custom TOC formatting
 \usepackage{lipsum}
 \usepackage{caption}
 \usepackage{cite}
+\usepackage[nottoc,numbib]{tocbibind}
 
-% Redefine the bibliography title
-\renewcommand{\refname}{References}
+
+% Change bibliography title to "References"
+\renewcommand{\bibname}{References}
 
 % -----------------------------
 % Font and Style Customization
@@ -55,9 +57,10 @@
 % -----------------------------
 
 \begin{document}
+	\let\cleardoublepage\clearpage
 	\maketitle
-	\pagenumbering{Roman}
 	
+	\pagenumbering{Roman}
 	\setcounter{secnumdepth}{1}
 	\setcounter{tocdepth}{1}
 	\tableofcontents
@@ -77,16 +80,20 @@
 	\chapter{Introduction}
 	\section{Introduction}
 	\section{Objectives}
+	
 	\chapter{Background Study}
 	\section{Current State}
 	\section{Our Solution}
 	\section{Functional Requirements}
+	
 	\chapter{Methodology}
 	\section{Application Flow}
 	\section{Function and Modules}
+	
 	\chapter{Design and Implementation}
 	\section{User Interface}
 	\section{Development tools and Environment}
+	
 	\chapter{Conclusion}
 	\section{Limitations of this project}
 	\section{Future scope}
@@ -97,8 +104,7 @@
 	\end{center}
 	some say \cite{doe2020signal} and \cite{smithe2019quantum}
 	
-	% \chapter*{Bibliography}
-	\addcontentsline{toc}{chapter}{Bibliography}
+	
 	\bibliographystyle{ieeetr}
 	\bibliography{./reference/reference.bib}
 \end{document}
