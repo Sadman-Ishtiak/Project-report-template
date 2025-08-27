@@ -1,0 +1,104 @@
+\documentclass[a4paper, 12pt]{report}
+\usepackage[top=2cm, bottom=2cm, left=2.54cm, right=1.5cm]{geometry}  % 1‑inch margins on every side
+\usepackage{graphicx}   % for figures
+\usepackage{titlesec}   % custom chapter titles
+\usepackage{minted}     % for syntax-highlighted code
+\usepackage{xcolor}
+\usepackage{fvextra}    % for line background colors
+\usepackage{tocloft}    % for custom TOC formatting
+\usepackage{lipsum}
+\usepackage{caption}
+\usepackage{cite}
+
+% Redefine the bibliography title
+\renewcommand{\refname}{References}
+
+% -----------------------------
+% Font and Style Customization
+% -----------------------------
+
+% Set minted style globally
+\setminted{
+	linenos,
+	breaklines
+}
+
+
+% -----------------------------
+% Title and Chapter Format
+% -----------------------------
+
+\title{Project Report Template}
+\author{Sadman Ishtiak}
+
+% Fix for `titlesec` not numbering chapters
+\titleformat{\chapter}[display]
+{\normalfont\bfseries\Huge}
+{\textbf{Chapter~\thechapter\ :\quad}}
+{0pt}
+{}
+
+% Fix for unnumbered chapters (Acknowledgement, Abstract, References)
+\titleformat{\chapter}[display]
+{\normalfont\Huge\bfseries}
+{}
+{0pt}
+{}
+\titlespacing{\chapter}{0pt}{50pt}{10pt}
+
+% TOC customizations
+\renewcommand{\contentsname}{Table of Contents}
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+
+% -----------------------------
+% Begin Document
+% -----------------------------
+
+\begin{document}
+	\maketitle
+	\pagenumbering{Roman}
+	
+	\setcounter{secnumdepth}{1}
+	\setcounter{tocdepth}{1}
+	\tableofcontents
+	
+	\clearpage
+	\pagenumbering{arabic}
+	
+	% -----------------------------
+	% Chapters
+	% -----------------------------
+	\chapter*{Acknowledgement}
+	\addcontentsline{toc}{chapter}{Acknowledgement}
+	
+	\chapter*{Abstract}
+	\addcontentsline{toc}{chapter}{Abstract}
+	
+	\chapter{Introduction}
+	\section{Introduction}
+	\section{Objectives}
+	\chapter{Background Study}
+	\section{Current State}
+	\section{Our Solution}
+	\section{Functional Requirements}
+	\chapter{Methodology}
+	\section{Application Flow}
+	\section{Function and Modules}
+	\chapter{Design and Implementation}
+	\section{User Interface}
+	\section{Development tools and Environment}
+	\chapter{Conclusion}
+	\section{Limitations of this project}
+	\section{Future scope}
+	\section{Conclusion}
+	\begin{center}
+		\includegraphics[width=0.5\linewidth]{../../../Pictures/app} % image scale = 0.5 of line width
+		\captionof{figure}{Image Caption that can be cited later}
+	\end{center}
+	some say \cite{doe2020signal} and \cite{smithe2019quantum}
+	
+	% \chapter*{Bibliography}
+	\addcontentsline{toc}{chapter}{Bibliography}
+	\bibliographystyle{ieeetr}
+	\bibliography{./reference/reference.bib}
+\end{document}
